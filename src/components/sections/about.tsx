@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <section id="about" className="py-16 md:py-32 px-6 bg-black">
@@ -48,11 +50,16 @@ export default function About() {
 
           {/* Device frame */}
           <div className="w-full max-w-[280px] aspect-[3/4] sm:max-w-[300px] md:max-w-none md:w-[380px] md:h-[500px] md:aspect-auto bg-surface-container-lowest rounded-[3rem] p-4 shadow-2xl mx-auto relative group">
-            {/* Photo placeholder */}
-            <div className="w-full h-full rounded-[2.5rem] bg-surface-container overflow-hidden flex items-center justify-center">
-              <span className="text-zinc-600 font-label text-sm tracking-widest uppercase">
-                Photo
-              </span>
+            {/* Portrait */}
+            <div className="w-full h-full rounded-[2.5rem] bg-black overflow-hidden relative">
+              <Image
+                src="/images/sanchit-portrait.png"
+                alt="Sanchit Agarwal"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 280px, 380px"
+                priority
+              />
             </div>
 
             {/* Available for opportunities badge */}
