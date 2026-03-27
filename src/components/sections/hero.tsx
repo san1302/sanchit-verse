@@ -4,9 +4,9 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-6 overflow-hidden bg-black">
+      <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-20 px-6 overflow-hidden bg-black">
         {/* Dramatic Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] editorial-glow pointer-events-none opacity-60" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[800px] editorial-glow pointer-events-none opacity-60" />
 
         <div className="relative z-10 max-w-5xl w-full text-center flex flex-col items-center">
           {/* Intro Line */}
@@ -24,7 +24,7 @@ export default function Hero() {
           </div>
 
           {/* Massive Headline */}
-          <h1 className="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter text-white leading-[0.9] mb-8">
+          <h1 className="font-headline text-3xl sm:text-4xl md:text-8xl font-extrabold tracking-tighter text-white leading-[0.9] mb-8">
             Software Engineer
             <br />
             <span className="text-white/40">& Problem Solver</span>
@@ -37,7 +37,7 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-24">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 md:mb-24">
             <button className="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-label tracking-wider uppercase text-[12px] font-bold hover:scale-105 transition-transform duration-300 shadow-lg shadow-red-900/20 active:scale-95">
               View Projects
             </button>
@@ -77,7 +77,7 @@ export default function Hero() {
             </div>
 
             {/* Signature Style Text */}
-            <div className="absolute -bottom-8 -right-4 md:-right-12 text-white/20 font-serif italic text-4xl md:text-6xl select-none pointer-events-none -rotate-12">
+            <div className="absolute -bottom-8 -right-4 md:-right-12 text-white/20 font-serif italic text-2xl md:text-4xl lg:text-6xl select-none pointer-events-none -rotate-12">
               Sanchit A.
             </div>
 
@@ -100,15 +100,15 @@ export default function Hero() {
       </section>
 
       {/* Stats Teaser / Brief About Transition */}
-      <section className="bg-black py-32 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+      <section className="bg-black py-16 md:py-32 px-6">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16 items-start">
           <div className="w-full md:w-1/3">
             <h2 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">
               The Digital Curator.
             </h2>
           </div>
           <div className="w-full md:w-2/3">
-            <p className="text-on-surface-variant text-2xl font-body leading-relaxed mb-12">
+            <p className="text-on-surface-variant text-lg sm:text-xl md:text-2xl font-body leading-relaxed mb-12">
               Specializing in{" "}
               <span className="text-white font-medium">
                 architecting high-performance systems

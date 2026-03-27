@@ -1,14 +1,14 @@
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 bg-black">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-6xl mx-auto items-center">
+    <section id="about" className="py-16 md:py-32 px-6 bg-black">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 max-w-6xl mx-auto items-center">
         {/* Left Column: Content */}
         <div className="md:col-span-7">
           <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-body mb-6">
             I&apos;M SANCHIT AGARWAL
           </p>
 
-          <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-white leading-tight mb-8">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-8">
             Hey, {"⚡"} software engineer
           </h2>
 
@@ -33,18 +33,18 @@ export default function About() {
             products.
           </p>
 
-          <button className="bg-primary-container text-white px-8 py-3 rounded-full font-body text-[12px] uppercase tracking-wider font-bold hover:scale-105 transition-transform mt-8">
+          <button className="w-full sm:w-auto bg-primary-container text-white px-8 py-3 rounded-full font-body text-[12px] uppercase tracking-wider font-bold hover:scale-105 transition-transform mt-8">
             Get In Touch
           </button>
         </div>
 
         {/* Right Column: Portrait */}
-        <div className="md:col-span-5 relative flex justify-center">
+        <div className="md:col-span-5 relative flex justify-center order-first md:order-last">
           {/* Red glow behind portrait */}
           <div className="absolute inset-0 editorial-glow" />
 
           {/* Device frame */}
-          <div className="w-[300px] h-[400px] md:w-[380px] md:h-[500px] bg-surface-container-lowest rounded-[3rem] p-4 shadow-2xl mx-auto relative group">
+          <div className="w-full max-w-[280px] aspect-[3/4] sm:max-w-[300px] md:max-w-none md:w-[380px] md:h-[500px] md:aspect-auto bg-surface-container-lowest rounded-[3rem] p-4 shadow-2xl mx-auto relative group">
             {/* Photo placeholder */}
             <div className="w-full h-full rounded-[2.5rem] bg-surface-container overflow-hidden flex items-center justify-center">
               <span className="text-zinc-600 font-label text-sm tracking-widest uppercase">

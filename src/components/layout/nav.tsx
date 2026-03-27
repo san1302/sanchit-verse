@@ -42,7 +42,7 @@ export function Nav() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-8 bg-zinc-900/60 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-6 py-3 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 sm:gap-8 bg-zinc-900/60 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-4 py-2.5 sm:px-6 sm:py-3 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
       <div className="text-xl font-bold tracking-tighter text-white font-headline">
         SA
       </div>
@@ -70,7 +70,7 @@ export function Nav() {
       </div>
 
       <button
-        className="md:hidden text-zinc-400 hover:text-white transition-colors duration-300"
+        className="md:hidden text-zinc-400 hover:text-white transition-colors duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Open menu"
       >
         <Menu size={20} />

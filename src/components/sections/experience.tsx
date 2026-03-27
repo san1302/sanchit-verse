@@ -23,17 +23,17 @@ const EXPERIENCES = [
 
 export default function Experience() {
   return (
-    <section id="works" className="py-32 px-6 bg-black relative">
+    <section id="works" className="py-16 md:py-32 px-6 bg-black relative">
       {/* Background glow */}
-      <div className="crimson-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none" />
+      <div className="crimson-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none" />
 
       {/* Heading */}
-      <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-4 text-center">
+      <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-4 text-center">
         My Experience
       </h2>
 
       {/* Subtitle */}
-      <p className="text-[#c6c6c7] font-body max-w-lg mx-auto leading-relaxed mb-16 text-center">
+      <p className="text-[#c6c6c7] font-body max-w-lg mx-auto leading-relaxed mb-10 md:mb-16 text-center">
         A journey through building scalable systems at global organizations.
       </p>
 
@@ -42,12 +42,12 @@ export default function Experience() {
         {EXPERIENCES.map((exp) => (
           <div
             key={`${exp.company}-${exp.dates}`}
-            className="glass-card glass-card-gradient w-full rounded-xl p-10 md:p-12 transition-all hover:bg-white/[0.02]"
+            className="glass-card glass-card-gradient w-full rounded-xl p-6 sm:p-8 md:p-12 transition-all hover:bg-white/[0.02]"
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
               {/* Left: role + company */}
               <div>
-                <p className="text-xl md:text-2xl font-bold font-headline text-white">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold font-headline text-white">
                   {exp.isCurrent && (
                     <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#DC2626] shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-3" />
                   )}
