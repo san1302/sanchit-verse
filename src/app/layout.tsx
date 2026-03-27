@@ -17,7 +17,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Sanchit Verse',
-  description: 'Articles, Portfolio, and Resume of a Sanchit Agarwal.',
+  description: 'Software Engineer | Ex-Amazon | AB InBev — Building scalable platforms and design systems.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
