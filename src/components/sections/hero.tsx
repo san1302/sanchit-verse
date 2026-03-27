@@ -14,11 +14,13 @@ export default function Hero() {
             <span className="text-on-surface-variant font-body text-sm sm:text-base font-light">
               Hi! I&apos;m Sanchit Agarwal
             </span>
-            <span className="text-on-surface-variant/30 hidden sm:inline">|</span>
-            <span className="text-on-surface-variant/30 sm:hidden">&middot;</span>
-            <span className="flex items-center gap-1.5 text-on-surface-variant font-body text-sm sm:text-base font-light">
-              Based in <span aria-label="India flag">{"🇮🇳"}</span> India
-            </span>
+            <div className="w-6 h-[1px] bg-outline-variant/30 hidden sm:block" />
+            <div className="flex items-center gap-1.5 bg-surface-container-low px-3 py-1 rounded-full border border-white/5">
+              <span className="text-[12px]" aria-label="India flag">{"🇮🇳"}</span>
+              <span className="text-on-surface-variant font-body text-[10px] sm:text-xs tracking-widest uppercase font-medium">
+                Based in India
+              </span>
+            </div>
           </div>
 
           {/* Massive Headline */}
