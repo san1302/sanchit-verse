@@ -9,18 +9,16 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[800px] editorial-glow pointer-events-none opacity-60" />
 
         <div className="relative z-10 max-w-5xl w-full text-center flex flex-col items-center">
-          {/* Intro Line */}
-          <div className="flex items-center gap-3 mb-8 animate-fade-in">
-            <span className="text-on-surface-variant font-label text-[12px] tracking-[0.2em] uppercase font-medium">
+          {/* Intro Line — single clean row */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8 animate-fade-in flex-wrap">
+            <span className="text-on-surface-variant font-body text-sm sm:text-base font-light">
               Hi! I&apos;m Sanchit Agarwal
             </span>
-            <div className="w-8 h-[1px] bg-outline-variant/30" />
-            <div className="flex items-center gap-1.5 bg-surface-container-low px-3 py-1 rounded-full border border-white/5">
-              <span className="text-[12px]" aria-label="India flag">{"🇮🇳"}</span>
-              <span className="text-on-surface-variant font-label text-[10px] tracking-widest uppercase font-medium">
-                Based in India
-              </span>
-            </div>
+            <span className="text-on-surface-variant/30 hidden sm:inline">|</span>
+            <span className="text-on-surface-variant/30 sm:hidden">&middot;</span>
+            <span className="flex items-center gap-1.5 text-on-surface-variant font-body text-sm sm:text-base font-light">
+              Based in <span aria-label="India flag">{"🇮🇳"}</span> India
+            </span>
           </div>
 
           {/* Massive Headline */}
@@ -36,15 +34,8 @@ export default function Hero() {
             architectures that drive impact.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 md:mb-24">
-            <button className="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-label tracking-wider uppercase text-[12px] font-bold hover:scale-105 transition-transform duration-300 shadow-lg shadow-red-900/20 active:scale-95">
-              View Projects
-            </button>
-            <button className="bg-transparent text-white border border-white/20 px-10 py-4 rounded-full font-label tracking-wider uppercase text-[12px] font-bold hover:bg-white/5 hover:scale-105 transition-all duration-300 active:scale-95">
-              Download Resume
-            </button>
-          </div>
+          {/* Spacer where CTAs used to be — let the work speak for itself */}
+          <div className="mb-12 md:mb-24" />
 
           {/* Image Area with Floating Elements */}
           <div className="relative w-full max-w-4xl group">

@@ -42,39 +42,44 @@ export function Nav() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between gap-4 sm:gap-8 bg-zinc-900/60 backdrop-blur-xl rounded-full mt-6 mx-auto w-fit px-4 py-2.5 sm:px-6 sm:py-3 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]">
-      <div className="text-xl font-bold tracking-tighter text-white font-headline">
-        SA
+    <nav className="fixed top-0 left-0 right-0 z-50 mx-4 mt-4 sm:mx-auto sm:mt-6 sm:w-fit">
+      <div className="flex items-center justify-between bg-zinc-900/60 backdrop-blur-xl rounded-2xl sm:rounded-full px-5 py-3 sm:px-6 sm:py-3 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] sm:gap-8">
+        {/* Logo */}
+        <div className="text-xl font-bold tracking-tighter text-white font-headline">
+          SA
+        </div>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-8">
+          {NAV_ITEMS.map(({ label, href }) => {
+            const sectionId = href.slice(1)
+            const isActive = activeSection === sectionId
+
+            return (
+              <a
+                key={href}
+                href={href}
+                onClick={(e) => handleClick(e, href)}
+                className={`relative font-body tracking-[0.2em] text-[10px] uppercase transition-colors duration-300 ${
+                  isActive
+                    ? "text-white after:content-[''] after:absolute after:-right-2 after:top-1/2 after:-translate-y-1/2 after:w-1 after:h-1 after:bg-red-600 after:rounded-full"
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                {label}
+              </a>
+            )
+          })}
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-zinc-400 hover:text-white transition-colors duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label="Open menu"
+        >
+          <Menu size={20} />
+        </button>
       </div>
-
-      <div className="hidden md:flex items-center gap-8">
-        {NAV_ITEMS.map(({ label, href }) => {
-          const sectionId = href.slice(1)
-          const isActive = activeSection === sectionId
-
-          return (
-            <a
-              key={href}
-              href={href}
-              onClick={(e) => handleClick(e, href)}
-              className={`relative font-body tracking-[0.2em] text-[10px] uppercase transition-colors duration-300 ${
-                isActive
-                  ? "text-white after:content-[''] after:absolute after:-right-2 after:top-1/2 after:-translate-y-1/2 after:w-1 after:h-1 after:bg-red-600 after:rounded-full"
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              {label}
-            </a>
-          )
-        })}
-      </div>
-
-      <button
-        className="md:hidden text-zinc-400 hover:text-white transition-colors duration-300 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-        aria-label="Open menu"
-      >
-        <Menu size={20} />
-      </button>
     </nav>
   )
 }
