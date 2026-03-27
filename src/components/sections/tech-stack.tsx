@@ -4,7 +4,6 @@ import {
   SiReact,
   SiNodedotjs,
   SiTypescript,
-  SiAmazonwebservices,
   SiMongodb,
   SiNextdotjs,
   SiGraphql,
@@ -14,6 +13,7 @@ import {
   SiGit,
   SiCplusplus,
 } from 'react-icons/si'
+import { FaAws } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
 
 interface TechItem {
@@ -25,7 +25,7 @@ const TECH_STACK: readonly TechItem[] = [
   { name: 'React', icon: SiReact },
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'TypeScript', icon: SiTypescript },
-  { name: 'AWS', icon: SiAmazonwebservices },
+  { name: 'AWS', icon: FaAws },
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'GraphQL', icon: SiGraphql },
