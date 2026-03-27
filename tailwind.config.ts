@@ -46,6 +46,7 @@ const config: Config = {
         "outline-variant": "#5c403c",
       },
       fontFamily: {
+        sans: ["var(--font-body)", "Inter", "sans-serif"],
         headline: ["var(--font-headline)", "Manrope", "sans-serif"],
         body: ["var(--font-body)", "Inter", "sans-serif"],
         label: ["var(--font-body)", "Inter", "sans-serif"],
@@ -58,6 +59,25 @@ const config: Config = {
       },
       transitionProperty: {
         'colors': 'background-color, border-color, color, fill, stroke, opacity',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(-5%) rotate(-6deg)" },
+          "50%": { transform: "translateY(0) rotate(-6deg)" },
+        },
+        "fade-in": {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite",
+        "bounce-slow": "bounce-slow 3s ease-in-out infinite",
+        "fade-in": "fade-in 1s ease-out forwards",
       },
     },
   },
