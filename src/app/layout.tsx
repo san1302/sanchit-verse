@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import { Manrope, Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/header';
-import Footer from '@/components/layout/footer';
-// Toaster removed as useToast hook is removed
-import { ThemeProvider } from '@/components/theme-provider'; // Import ThemeProvider
+import { ThemeProvider } from '@/components/theme-provider';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const manrope = Manrope({
   subsets: ['latin'],
+  weight: ['400', '700', '800'],
+  variable: '--font-headline',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-body',
 });
 
 export const metadata: Metadata = {
@@ -22,25 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning={true}>
-      {/* Added suppressHydrationWarning to html tag */}
-      <body
-        // Use template literals for cleaner class concatenation
-        className={`min-h-screen bg-background font-sans antialiased flex flex-col ${geistSans.variable}`}
-        suppressHydrationWarning={true} // Keep suppressHydrationWarning on body
-      >
+    <html lang="en" className={`${manrope.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="bg-black text-[#e2e2e2] font-body antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
-          <Header />
-          <main className="flex-grow container py-10">
-            {children}
-          </main>
-          <Footer />
-          {/* Toaster component removed */}
+          {children}
         </ThemeProvider>
       </body>
     </html>

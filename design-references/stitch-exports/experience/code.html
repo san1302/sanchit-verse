@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Experience | NOCTURNAL MUSE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#5c403c",
+              "surface-container": "#1f1f1f",
+              "primary": "#2fd9f4",
+              "surface-variant": "#353535",
+              "surface-container-lowest": "#0e0e0e",
+              "on-primary": "#00363e",
+              "surface-container-high": "#2a2a2a",
+              "primary-fixed": "#a2eeff",
+              "on-background": "#e2e2e2",
+              "tertiary-fixed": "#e3e2e3",
+              "on-tertiary-container": "#f9f8f9",
+              "on-secondary-fixed-variant": "#93000b",
+              "secondary-fixed-dim": "#ffb4ab",
+              "primary-container": "#007d8f",
+              "on-secondary-fixed": "#410002",
+              "tertiary": "#c6c6c7",
+              "inverse-on-surface": "#303030",
+              "surface-tint": "#2fd9f4",
+              "on-tertiary-fixed": "#1a1c1d",
+              "inverse-surface": "#e2e2e2",
+              "tertiary-container": "#717273",
+              "inverse-primary": "#006877",
+              "on-primary-fixed-variant": "#004e5a",
+              "secondary": "#ffb4ab",
+              "on-primary-container": "#ebfbff",
+              "secondary-container": "#bb0112",
+              "surface": "#131313",
+              "primary-fixed-dim": "#2fd9f4",
+              "on-surface-variant": "#e6bdb8",
+              "on-secondary-container": "#ffc8c1",
+              "on-tertiary-fixed-variant": "#454748",
+              "on-tertiary": "#2f3132",
+              "surface-container-highest": "#353535",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "surface-bright": "#393939",
+              "on-surface": "#e2e2e2",
+              "outline": "#ac8884",
+              "on-primary-fixed": "#001f25",
+              "error": "#ffb4ab",
+              "error-container": "#93000a",
+              "on-error-container": "#ffdad6",
+              "background": "#131313",
+              "surface-dim": "#131313",
+              "on-secondary": "#690005",
+              "on-error": "#690005",
+              "surface-container-low": "#1b1b1b",
+              "secondary-fixed": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(27, 27, 27, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(92, 64, 60, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Ghost border gradient effect */
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(255, 180, 171, 0.2) 0%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .crimson-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(220, 38, 38, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-[#000000] text-on-background font-body antialiased selection:bg-primary selection:text-on-primary">
+<!-- Global Layout Shell -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 max-w-7xl mx-auto left-1/2 -translate-x-1/2 bg-transparent backdrop-blur-md">
+<div class="text-2xl font-black text-white tracking-tighter">NOCTURNAL MUSE</div>
+<nav class="hidden md:flex items-center space-x-8 font-headline font-bold tracking-tight">
+<a class="text-[#c6c6c7] hover:text-white transition-colors" href="#">Work</a>
+<a class="text-[#2fd9f4] font-bold border-b-2 border-[#2fd9f4] pb-1" href="#">Experience</a>
+<a class="text-[#c6c6c7] hover:text-white transition-colors" href="#">About</a>
+<a class="text-[#c6c6c7] hover:text-white transition-colors" href="#">Contact</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-headline font-bold scale-95 active:scale-90 transition-transform">Hire Me</button>
+</header>
+<main class="relative min-h-screen pt-40 pb-24 overflow-hidden">
+<!-- Background Ambient Glow -->
+<div class="absolute inset-0 pointer-events-none crimson-glow z-0"></div>
+<!-- Experience Section Content -->
+<section class="relative z-10 container mx-auto px-6">
+<div class="text-center mb-24 max-w-3xl mx-auto">
+<h1 class="font-headline font-extrabold text-[2.5rem] md:text-[3rem] text-white leading-tight mb-4 tracking-tight">
+                    My Experience
+                </h1>
+<p class="font-body text-tertiary text-lg max-w-xl mx-auto leading-relaxed">
+                    A journey through building scalable systems at global organizations.
+                </p>
+</div>
+<!-- Experience List -->
+<div class="flex flex-col gap-6 max-w-4xl mx-auto items-center">
+<!-- Entry 1 -->
+<div class="glass-card w-full rounded-xl p-12 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all duration-500 hover:bg-surface-container/60">
+<div class="flex flex-col gap-2 relative">
+<!-- Current Role Indicator -->
+<div class="absolute -left-6 top-3 w-2 h-2 rounded-full bg-[#DC2626] shadow-[0_0_10px_#DC2626]"></div>
+<h2 class="font-headline font-bold text-2xl md:text-[2rem] text-white leading-none">
+                            Software Engineer
+                        </h2>
+<span class="font-body text-tertiary text-lg">AB InBev</span>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="font-body text-tertiary text-base md:text-lg">April 2023 - Present</span>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="glass-card w-full rounded-xl p-12 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all duration-500 hover:bg-surface-container/60">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline font-bold text-2xl md:text-[2rem] text-white leading-none">
+                            Software Engineer
+                        </h2>
+<span class="font-body text-tertiary text-lg">Amazon</span>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="font-body text-tertiary text-base md:text-lg">Aug 2021 - Dec 2022</span>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="glass-card w-full rounded-xl p-12 flex flex-col md:flex-row justify-between items-start md:items-center group transition-all duration-500 hover:bg-surface-container/60">
+<div class="flex flex-col gap-2">
+<h2 class="font-headline font-bold text-2xl md:text-[2rem] text-white leading-none">
+                            Software Engineering Intern
+                        </h2>
+<span class="font-body text-tertiary text-lg">Amazon</span>
+</div>
+<div class="mt-4 md:mt-0">
+<span class="font-body text-tertiary text-base md:text-lg">Jan 2021 - July 2021</span>
+</div>
+</div>
+</div>
+<!-- CTA Footer -->
+<div class="mt-20 text-center">
+<a class="inline-flex items-center gap-2 font-body text-tertiary hover:text-white transition-all duration-300 group" href="#">
+<span class="text-xs uppercase tracking-[0.2em]">View full resume</span>
+<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Decorative Elements -->
+<div class="absolute top-[20%] -right-24 w-96 h-96 bg-secondary-container/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[10%] -left-24 w-80 h-80 bg-primary-container/5 blur-[100px] rounded-full"></div>
+</main>
+<footer class="flex flex-col md:flex-row justify-between items-center px-12 w-full border-t border-[#1b1b1b] bg-[#000000] py-12">
+<div class="text-lg font-bold text-white mb-6 md:mb-0">NOCTURNAL MUSE</div>
+<div class="flex gap-8 mb-6 md:mb-0">
+<a class="font-label text-[10px] uppercase tracking-widest text-[#c6c6c7] hover:text-white transition-colors" href="#">Twitter</a>
+<a class="font-label text-[10px] uppercase tracking-widest text-[#c6c6c7] hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="font-label text-[10px] uppercase tracking-widest text-[#c6c6c7] hover:text-white transition-colors" href="#">Dribbble</a>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-[#c6c6c7]">© 2024 NOCTURNAL MUSE. ALL RIGHTS RESERVED.</p>
+</footer>
+</body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#690005",
+              "surface-container-highest": "#353535",
+              "outline": "#ac8884",
+              "surface-variant": "#353535",
+              "primary-container": "#007d8f",
+              "inverse-primary": "#006877",
+              "tertiary-fixed-dim": "#c6c6c7",
+              "on-secondary-fixed-variant": "#93000b",
+              "surface-dim": "#131313",
+              "on-tertiary-fixed": "#1a1c1d",
+              "tertiary": "#c6c6c7",
+              "secondary-fixed": "#ffdad6",
+              "primary": "#2fd9f4",
+              "on-primary": "#00363e",
+              "secondary-fixed-dim": "#ffb4ab",
+              "on-surface-variant": "#e6bdb8",
+              "tertiary-container": "#717273",
+              "surface-container-low": "#1b1b1b",
+              "surface-bright": "#393939",
+              "on-primary-container": "#ebfbff",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e2e2e2",
+              "inverse-surface": "#e2e2e2",
+              "outline-variant": "#5c403c",
+              "on-surface": "#e2e2e2",
+              "surface-container": "#1f1f1f",
+              "on-primary-fixed": "#001f25",
+              "on-tertiary": "#2f3132",
+              "primary-fixed": "#a2eeff",
+              "surface": "#131313",
+              "secondary": "#ffb4ab",
+              "primary-fixed-dim": "#2fd9f4",
+              "on-primary-fixed-variant": "#004e5a",
+              "error": "#ffb4ab",
+              "on-secondary-fixed": "#410002",
+              "background": "#000000",
+              "error-container": "#93000a",
+              "on-tertiary-container": "#f9f8f9",
+              "surface-container-lowest": "#0e0e0e",
+              "on-tertiary-fixed-variant": "#454748",
+              "surface-tint": "#2fd9f4",
+              "secondary-container": "#bb0112",
+              "on-error": "#690005",
+              "tertiary-fixed": "#e3e2e3",
+              "on-secondary-container": "#ffc8c1",
+              "on-error-container": "#ffdad6",
+              "inverse-on-surface": "#303030"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(31, 31, 31, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .radial-red-glow {
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-black text-on-surface font-body overflow-x-hidden">
+<!-- TopAppBar from Shared Components -->
+<header class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md">
+<nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-white tracking-tighter">SA</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-zinc-400 font-medium hover:text-cyan-300 transition-colors duration-300" href="#">Portfolio</a>
+<a class="text-zinc-400 font-medium hover:text-cyan-300 transition-colors duration-300" href="#">Services</a>
+<a class="text-cyan-400 font-bold border-b-2 border-cyan-400 pb-1" href="#">Stack</a>
+<a class="text-zinc-400 font-medium hover:text-cyan-300 transition-colors duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold scale-95 active:scale-90 transition-transform">Hire Me</button>
+</nav>
+</header>
+<main class="relative pt-32">
+<!-- Section 1: Tech Stack -->
+<section class="px-8 py-24 max-w-7xl mx-auto" id="stack">
+<div class="mb-16">
+<h2 class="font-headline font-bold text-5xl text-white mb-4">Tech Stack</h2>
+<p class="text-tertiary text-lg max-w-2xl">A curated selection of modern technologies I use to build robust, scalable, and high-performance digital solutions.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Stack Items -->
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">rebase_edit</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">React</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">terminal</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">Node.js</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">code</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">TypeScript</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">cloud</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">AWS</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">database</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">MongoDB</span>
+</div>
+<!-- Hover State Item: Next.js -->
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 scale-105 border-primary/50 shadow-[0_0_20px_rgba(47,217,244,0.1)]">
+<span class="material-symbols-outlined text-primary text-4xl" data-weight="fill" style="font-variation-settings: 'FILL' 1;">layers</span>
+<span class="font-label text-xs uppercase tracking-widest text-primary font-bold">Next.js</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">hub</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">GraphQL</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">box</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">Docker</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">storage</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">PostgreSQL</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">style</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">Tailwind CSS</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">commit</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">Git</span>
+</div>
+<div class="glass-card p-8 rounded-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-zinc-400 text-4xl">developer_board</span>
+<span class="font-label text-xs uppercase tracking-widest text-zinc-500">C++</span>
+</div>
+</div>
+</section>
+<!-- Section 2: Contact -->
+<section class="relative py-40 flex flex-col items-center justify-center text-center px-8 overflow-hidden" id="contact">
+<!-- Background Glow -->
+<div class="absolute inset-0 radial-red-glow -z-10 opacity-60"></div>
+<div class="relative mb-8">
+<span class="font-headline font-extrabold text-[8rem] md:text-[12rem] leading-none text-white opacity-90 select-none tracking-tighter">SA</span>
+<!-- Glass Badge overlay -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 glass-card px-4 py-1 rounded-full whitespace-nowrap">
+<span class="font-label text-[10px] text-primary uppercase tracking-[0.3em] font-bold">Open for Collaboration</span>
+</div>
+</div>
+<div class="max-w-3xl space-y-6">
+<h3 class="font-headline font-bold text-4xl md:text-6xl text-white">Let's build something amazing together.</h3>
+<p class="text-tertiary text-lg md:text-xl font-body">Drop me a message to discuss your next project or just say hi!</p>
+</div>
+<div class="mt-12 flex flex-wrap justify-center gap-4">
+<!-- Hover State Item: EMAIL -->
+<a class="bg-secondary-container text-white px-8 py-3 rounded-full font-label text-sm font-bold tracking-widest transition-all duration-300 flex items-center gap-2 shadow-lg shadow-secondary-container/20" href="mailto:contact@sanchit.dev">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">mail</span>
+                    EMAIL
+                </a>
+<a class="glass-card hover:bg-white/10 text-white px-8 py-3 rounded-full font-label text-sm font-bold tracking-widest transition-all duration-300 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+                    LINKEDIN
+                </a>
+<a class="glass-card hover:bg-white/10 text-white px-8 py-3 rounded-full font-label text-sm font-bold tracking-widest transition-all duration-300 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">code</span>
+                    GITHUB
+                </a>
+<a class="glass-card hover:bg-white/10 text-white px-8 py-3 rounded-full font-label text-sm font-bold tracking-widest transition-all duration-300 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+                    TWITTER
+                </a>
+</div>
+</section>
+</main>
+<!-- Section 3: Footer -->
+<footer class="bg-black py-16 px-8">
+<div class="max-w-4xl mx-auto space-y-12">
+<!-- Ghost Border line -->
+<div class="w-full h-px bg-outline-variant/10"></div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 fade-in duration-500">
+<div class="text-zinc-500 font-body text-[10px] uppercase tracking-[0.4em]">
+                    © 2026 Sanchit Agarwal. All rights reserved.
+                </div>
+<div class="flex gap-8">
+<a class="text-zinc-500 text-xs hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 rounded-full px-4 py-1" href="#">LinkedIn</a>
+<a class="text-zinc-500 text-xs hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 rounded-full px-4 py-1" href="#">GitHub</a>
+<a class="text-zinc-500 text-xs hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 rounded-full px-4 py-1" href="#">Twitter</a>
+<a class="text-zinc-500 text-xs hover:text-red-500 hover:bg-red-500/10 transition-all duration-300 rounded-full px-4 py-1" href="#">Email</a>
+</div>
+</div>
+<div class="text-center">
+<p class="font-manrope text-sm tracking-wide text-zinc-700">© 2024 SA Portfolio. Designed for the Neon Nocturne.</p>
+</div>
+</div>
+</footer>
+</body></html>

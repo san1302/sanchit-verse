@@ -92,7 +92,7 @@ export default function Header() {
                height={32}
                className="rounded bg-white p-1"
              />
-            <span className="font-bold">Minimalist Muse</span>
+            <span className="font-bold">Sanchit Agarwal</span>
           </Link>
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => (
