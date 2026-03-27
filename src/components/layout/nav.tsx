@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -60,9 +61,13 @@ export function Nav() {
       <nav className="fixed top-0 left-0 right-0 z-50 mx-4 mt-4 sm:mx-auto sm:mt-6 sm:w-fit">
         <div className="flex items-center justify-between bg-zinc-900/60 backdrop-blur-xl rounded-2xl sm:rounded-full px-5 py-3 sm:px-6 sm:py-3 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] sm:gap-8">
           {/* Logo */}
-          <div className="text-xl font-bold tracking-tighter text-white font-headline">
-            SA
-          </div>
+          <Image
+            src="/favicon-512.png"
+            alt="SA"
+            width={36}
+            height={36}
+            className=""
+          />
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
