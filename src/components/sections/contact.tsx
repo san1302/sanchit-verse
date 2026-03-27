@@ -11,7 +11,7 @@ const SOCIALS: readonly SocialLink[] = [
   { label: 'Email', icon: Mail, href: 'mailto:sanchitagarwal0332@gmail.com' },
   { label: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/sanchitagarwal0332/' },
   { label: 'GitHub', icon: Github, href: 'https://github.com/san1302' },
-  { label: 'Twitter', icon: Twitter, href: '#' },
+  { label: 'X', icon: Twitter, href: 'https://x.com/sanchit_verse' },
 ] as const
 
 export default function Contact() {

@@ -33,9 +33,12 @@ export default function About() {
             products.
           </p>
 
-          <button className="w-full sm:w-auto bg-primary-container text-white px-8 py-3 rounded-full font-body text-[12px] uppercase tracking-wider font-bold hover:scale-105 transition-transform mt-8">
+          <a
+            href="#contact"
+            className="inline-block w-full sm:w-auto bg-primary-container text-white px-8 py-3 rounded-full font-body text-[12px] uppercase tracking-wider font-bold hover:scale-105 transition-transform mt-8 text-center"
+          >
             Get In Touch
-          </button>
+          </a>
         </div>
 
         {/* Right Column: Portrait */}
