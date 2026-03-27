@@ -1,9 +1,9 @@
 export default function About() {
   return (
     <section id="about" className="py-32 px-6 bg-black">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 max-w-6xl mx-auto items-center">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-16 max-w-6xl mx-auto items-center">
         {/* Left Column: Content */}
-        <div className="lg:col-span-7">
+        <div className="md:col-span-7">
           <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-body mb-6">
             I&apos;M SANCHIT AGARWAL
           </p>
@@ -39,7 +39,7 @@ export default function About() {
         </div>
 
         {/* Right Column: Portrait */}
-        <div className="lg:col-span-5 relative flex justify-center">
+        <div className="md:col-span-5 relative flex justify-center">
           {/* Red glow behind portrait */}
           <div className="absolute inset-0 editorial-glow" />
 
@@ -62,13 +62,13 @@ export default function About() {
             </div>
 
             {/* Floating role pills */}
-            <div className="absolute bottom-20 -left-4 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
+            <div className="hidden sm:block absolute bottom-20 -left-4 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
               Full-Stack Developer
             </div>
-            <div className="absolute bottom-32 -right-8 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
+            <div className="hidden sm:block absolute bottom-32 -right-8 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
               Cloud Architect
             </div>
-            <div className="absolute bottom-8 -right-4 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
+            <div className="hidden sm:block absolute bottom-8 -right-4 glass-card px-3 py-1.5 rounded-full text-[10px] text-zinc-300 uppercase tracking-wider">
               Software Engineer
             </div>
           </div>

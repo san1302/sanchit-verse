@@ -30,14 +30,14 @@ export default function Contact() {
           Drop me a message to discuss your next project or just say hi!
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
           {SOCIALS.map((s) => (
             <a
               key={s.label}
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card px-6 py-3 rounded-full flex items-center gap-3 text-white text-[11px] uppercase tracking-widest font-body font-bold hover:bg-[#DC2626] hover:border-transparent transition-all duration-300"
+              className="w-full sm:w-auto glass-card px-6 py-3 rounded-full flex items-center justify-center gap-3 text-white text-[11px] uppercase tracking-widest font-body font-bold hover:bg-[#DC2626] hover:border-transparent transition-all duration-300"
             >
               <s.icon className="w-4 h-4" />
               {s.label}

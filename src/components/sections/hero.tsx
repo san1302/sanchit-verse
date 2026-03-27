@@ -103,7 +103,7 @@ export default function Hero() {
       <section className="bg-black py-32 px-6">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-start">
           <div className="w-full md:w-1/3">
-            <h2 className="font-headline text-3xl font-bold text-white tracking-tight">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">
               The Digital Curator.
             </h2>
           </div>

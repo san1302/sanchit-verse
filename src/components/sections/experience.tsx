@@ -49,7 +49,7 @@ export default function Experience() {
               <div>
                 <p className="text-xl md:text-2xl font-bold font-headline text-white">
                   {exp.isCurrent && (
-                    <span className="inline-block w-2 h-2 rounded-full bg-[#DC2626] shadow-[0_0_8px_rgba(220,38,38,0.6)] mr-3" />
+                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#DC2626] shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-3" />
                   )}
                   {exp.title}
                 </p>
