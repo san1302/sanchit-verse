@@ -23,7 +23,7 @@ const EXPERIENCES = [
 
 export default function Experience() {
   return (
-    <section id="works" className="py-16 md:py-32 px-6 bg-black relative">
+    <section id="experience" className="py-16 md:py-32 px-6 bg-black relative">
       {/* Background glow */}
       <div className="crimson-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none" />
 

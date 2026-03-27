@@ -1,4 +1,4 @@
-import { Terminal, Cloud, Building2 } from "lucide-react";
+import { Terminal, Cloud, Building2, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -35,9 +35,6 @@ export default function Hero() {
             I build scalable platforms, design systems, and cloud-native
             architectures that drive impact.
           </p>
-
-          {/* Spacer where CTAs used to be — let the work speak for itself */}
-          <div className="mb-12 md:mb-24" />
 
           {/* Image Area with Floating Elements */}
           <div className="relative w-full max-w-4xl group">
@@ -90,45 +87,13 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Stats Teaser / Brief About Transition */}
-      <section className="bg-black py-16 md:py-32 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16 items-start">
-          <div className="w-full md:w-1/3">
-            <h2 className="font-headline text-2xl md:text-3xl font-bold text-white tracking-tight">
-              The Digital Curator.
-            </h2>
-          </div>
-          <div className="w-full md:w-2/3">
-            <p className="text-on-surface-variant text-lg sm:text-xl md:text-2xl font-body leading-relaxed mb-12">
-              Specializing in{" "}
-              <span className="text-white font-medium">
-                architecting high-performance systems
-              </span>{" "}
-              and refined user experiences. My approach blends technical rigor
-              with editorial aesthetics to create products that feel as good as
-              they perform.
-            </p>
-            <div className="grid grid-cols-2 gap-8 pt-12 border-t border-white/10">
-              <div>
-                <span className="text-primary-container font-headline text-4xl font-extrabold">
-                  05+
-                </span>
-                <p className="text-on-surface-variant font-label text-[10px] tracking-widest uppercase mt-2">
-                  Years Experience
-                </p>
-              </div>
-              <div>
-                <span className="text-primary-container font-headline text-4xl font-extrabold">
-                  40+
-                </span>
-                <p className="text-on-surface-variant font-label text-[10px] tracking-widest uppercase mt-2">
-                  Projects Shipped
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
+          <span className="text-on-surface-variant/40 font-body text-[10px] tracking-widest uppercase">
+            Scroll
+          </span>
+          <ChevronDown className="w-4 h-4 text-on-surface-variant/40" />
         </div>
       </section>
     </>
