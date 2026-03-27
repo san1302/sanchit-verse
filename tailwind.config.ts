@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
-import typography from '@tailwindcss/typography'; // Ensure this import is correct
+import typography from '@tailwindcss/typography';
 
 const config: Config = {
-  darkMode: "class", // Enable dark mode using the 'class' strategy
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,73 +10,59 @@ const config: Config = {
   ],
   theme: {
     extend: {
-       container: { // Define container settings globally
+      container: {
         center: true,
         padding: {
-          DEFAULT: '1rem', // Default padding
-          sm: '2rem',      // Padding for small screens and up
-          lg: '4rem',      // Padding for large screens and up
-          xl: '5rem',      // Padding for extra large screens and up
+          DEFAULT: '1rem',
+          sm: '2rem',
+          lg: '4rem',
+          xl: '5rem',
         },
-        screens: {         // Define max-widths for container
+        screens: {
           sm: '640px',
           md: '768px',
           lg: '1024px',
           xl: '1280px',
-         '2xl': '1400px', // Added a larger breakpoint
+          '2xl': '1400px',
         },
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: '#00acb5',
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: { // For potential popover-like elements
-          DEFAULT: "hsl(var(--background))", // Use background for popovers
-          foreground: "hsl(var(--foreground))",
-        },
-        card: { // Basic card styles
-          DEFAULT: "hsl(var(--background))", // Use background for cards
-          foreground: "hsl(var(--foreground))",
-        },
+        "surface": "#131318",
+        "surface-dim": "#131318",
+        "surface-bright": "#39393e",
+        "surface-container-lowest": "#0e0e13",
+        "surface-container-low": "#1b1b20",
+        "surface-container": "#1f1f24",
+        "surface-container-high": "#2a292f",
+        "surface-container-highest": "#35343a",
+        "surface-variant": "#35343a",
+        "on-surface": "#e2e2e2",
+        "on-surface-variant": "#e6bdb8",
+        "primary-container": "#dc2626",
+        "on-primary-container": "#fff6f5",
+        "secondary": "#22D3EE",
+        "tertiary": "#c6c6c7",
+        "outline": "#ac8884",
+        "outline-variant": "#5c403c",
+      },
+      fontFamily: {
+        headline: ["var(--font-headline)", "Manrope", "sans-serif"],
+        body: ["var(--font-body)", "Inter", "sans-serif"],
+        label: ["var(--font-body)", "Inter", "sans-serif"],
       },
       borderRadius: {
-        lg: `calc(var(--radius) + 2px)`,
-        md: `var(--radius)`,
-        sm: "calc(var(--radius) - 2px)",
+        DEFAULT: "1rem",
+        lg: "2rem",
+        xl: "3rem",
+        full: "9999px",
       },
-       fontFamily: {
-        sans: ["var(--font-geist-sans)"], // Use Geist Sans
-      },
-      // Add subtle animations/transitions if desired
       transitionProperty: {
         'colors': 'background-color, border-color, color, fill, stroke, opacity',
       },
     },
   },
   plugins: [
-    typography // Add the typography plugin
+    typography,
   ],
 };
 export default config;

@@ -3,53 +3,48 @@
 @tailwind utilities;
 
 @layer base {
-  /* Define basic theme colors using CSS variables */
   :root {
-    --background: 0 0% 98%; /* Very light gray */
-    --foreground: 220 15% 20%; /* Dark grayish blue */
-    --primary: 210 80% 50%; /* Vibrant blue */
-    --primary-foreground: 0 0% 98%; /* Very light gray */
-    --secondary: 210 20% 95%; /* Light blue-gray */
-    --secondary-foreground: 220 15% 30%; /* Darker grayish blue */
-    --muted: 210 20% 95%; /* Light blue-gray */
-    --muted-foreground: 220 10% 45%; /* Medium grayish blue */
-    --accent: 150 60% 45%; /* Muted Teal/Green */
-    --accent-foreground: 0 0% 98%; /* Very light gray */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 210 15% 90%; /* Light blue-gray border */
-    --input: 210 15% 90%; /* Light blue-gray input */
-    --ring: 210 80% 50%; /* Vibrant blue for focus rings */
+    --background: #000000;
+    --foreground: #e2e2e2;
+    --radius: 1rem;
+
+    /* Legacy CSS variable mappings for existing Tailwind utility usage */
+    --primary: #dc2626;
+    --primary-foreground: #fff6f5;
+    --secondary: #1f1f24;
+    --secondary-foreground: #e2e2e2;
+    --muted: #1b1b20;
+    --muted-foreground: #c6c6c7;
+    --accent: #22D3EE;
+    --accent-foreground: #0e0e13;
+    --destructive: #dc2626;
+    --destructive-foreground: #fff6f5;
+    --border: rgba(92, 64, 60, 0.15);
+    --input: rgba(92, 64, 60, 0.15);
+    --ring: #dc2626;
+    --card: #1f1f24;
   }
 
-  .dark {
-    --background: 220 15% 15%; /* Dark grayish blue */
-    --foreground: 0 0% 98%; /* Very light gray */
-    --primary: 210 90% 60%; /* Brighter blue */
-    --primary-foreground: 220 15% 10%; /* Very dark */
-    --secondary: 220 15% 25%; /* Darker grayish blue */
-    --secondary-foreground: 0 0% 98%; /* Very light gray */
-    --muted: 220 15% 25%; /* Darker grayish blue */
-    --muted-foreground: 0 0% 65%; /* Medium gray */
-    --accent: 150 70% 55%; /* Brighter Teal/Green */
-    --accent-foreground: 220 15% 10%; /* Very dark */
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 30%; /* Dark gray border */
-    --input: 220 15% 30%; /* Dark gray input */
-    --ring: 210 90% 60%; /* Brighter blue for focus rings */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
   }
-}
 
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(-5%) rotate(-6deg); }
+    50% { transform: translateY(0) rotate(-6deg); }
+  }
 
-@layer base {
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   * {
-    /* Apply Tailwind's border color and transition */
-    @apply border-border transition-colors duration-200;
+    @apply border-[#5c403c]/10 transition-colors duration-200;
   }
   body {
-    /* Apply Tailwind's background and text color */
-    @apply bg-background text-foreground;
+    @apply bg-black text-[#e2e2e2];
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-semibold tracking-tight;
@@ -60,42 +55,59 @@
   h4 { @apply text-xl; }
   p { @apply leading-7; }
   a {
-    /* Apply Tailwind's primary color and hover effect */
-    @apply text-primary hover:text-primary/80 underline-offset-4;
+    @apply text-[#dc2626] hover:text-[#dc2626]/80 underline-offset-4;
   }
-  /* Apply primary color to links within prose */
   .prose a {
-    @apply text-primary hover:text-primary/80;
+    @apply text-[#dc2626] hover:text-[#dc2626]/80;
   }
 }
 
 @layer components {
-  /* Define a simple container class */
+  .glass-card {
+    background: rgba(31, 31, 31, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .editorial-glow {
+    background: radial-gradient(circle at center, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0) 70%);
+  }
+
+  .crimson-glow {
+    background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.12) 0%, transparent 70%);
+  }
+
+  .ghost-border {
+    border: 1px solid rgba(92, 64, 60, 0.15);
+  }
+
+  /* Container */
   .container {
     @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Basic Button Styles */
+  /* Button Styles */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
   }
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply bg-[#DC2626] text-white hover:bg-[#DC2626]/90;
   }
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply bg-[#1f1f24] text-[#e2e2e2] hover:bg-[#1f1f24]/80;
   }
   .btn-outline {
-    @apply border border-input bg-background hover:bg-accent hover:text-accent-foreground;
+    @apply border border-[#5c403c]/15 bg-transparent hover:bg-[#1f1f24] hover:text-[#e2e2e2];
   }
-    .btn-link {
-    @apply text-primary underline-offset-4 hover:underline;
+  .btn-link {
+    @apply text-[#dc2626] underline-offset-4 hover:underline;
   }
   .btn-ghost {
-    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply hover:bg-[#1f1f24] hover:text-[#e2e2e2];
   }
   .btn-destructive {
-     @apply bg-destructive text-destructive-foreground hover:bg-destructive/90;
+    @apply bg-[#dc2626] text-white hover:bg-[#dc2626]/90;
   }
   .btn-lg {
     @apply h-11 px-8;
@@ -110,19 +122,19 @@
     @apply h-10 w-10;
   }
 
-  /* Basic Input Styles */
+  /* Input Styles */
   .input {
-    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+    @apply flex h-10 w-full rounded-md border border-[#5c403c]/15 bg-[#1f1f24] px-3 py-2 text-base placeholder:text-[#c6c6c7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
   }
 
-  /* Basic Textarea Styles */
+  /* Textarea Styles */
   .textarea {
-      @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
+    @apply flex min-h-[80px] w-full rounded-md border border-[#5c403c]/15 bg-[#1f1f24] px-3 py-2 text-base placeholder:text-[#c6c6c7] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm;
   }
 
-  /* Basic Card Styles */
-   .card {
-    @apply rounded-lg border border-border bg-white dark:bg-card p-6 shadow-sm; /* Use white for light, dark card for dark */
+  /* Card Styles */
+  .card {
+    @apply rounded-lg border border-[#5c403c]/15 bg-[#1f1f24] p-6 shadow-sm;
   }
   .card-header {
     @apply mb-4;
@@ -130,46 +142,46 @@
   .card-title {
     @apply text-xl font-semibold;
   }
-   .card-description {
-    @apply text-sm text-muted-foreground;
+  .card-description {
+    @apply text-sm text-[#c6c6c7];
   }
   .card-content {
-     @apply text-sm;
+    @apply text-sm;
   }
   .card-footer {
-    @apply mt-4 pt-4 border-t border-border;
+    @apply mt-4 pt-4 border-t border-[#5c403c]/15;
   }
 
-  /* Basic Badge Styles */
+  /* Badge Styles */
   .badge {
-      @apply inline-flex items-center rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold transition-colors;
+    @apply inline-flex items-center rounded-full border border-[#5c403c]/15 px-2.5 py-0.5 text-xs font-semibold transition-colors;
   }
   .badge-secondary {
-       @apply border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply border-transparent bg-[#1f1f24] text-[#e2e2e2] hover:bg-[#1f1f24]/80;
   }
 
-   /* Basic Separator Styles */
+  /* Separator Styles */
   .separator {
-     @apply shrink-0 bg-border;
+    @apply shrink-0 bg-[#5c403c]/15;
   }
   .separator-horizontal {
-     @apply h-[1px] w-full;
+    @apply h-[1px] w-full;
   }
   .separator-vertical {
-     @apply h-full w-[1px];
+    @apply h-full w-[1px];
   }
 
-   /* Basic Toast Styles */
-   .toast {
-       @apply fixed bottom-5 right-5 z-50 max-w-sm rounded-md border border-border bg-background p-4 shadow-lg;
-   }
-   .toast-title {
-       @apply font-semibold text-sm;
-   }
-   .toast-description {
-       @apply text-sm text-muted-foreground;
-   }
-   .toast-destructive {
-        @apply border-destructive bg-destructive text-destructive-foreground;
-   }
+  /* Toast Styles */
+  .toast {
+    @apply fixed bottom-5 right-5 z-50 max-w-sm rounded-md border border-[#5c403c]/15 bg-[#1f1f24] p-4 shadow-lg;
+  }
+  .toast-title {
+    @apply font-semibold text-sm;
+  }
+  .toast-description {
+    @apply text-sm text-[#c6c6c7];
+  }
+  .toast-destructive {
+    @apply border-[#dc2626] bg-[#dc2626] text-white;
+  }
 }
