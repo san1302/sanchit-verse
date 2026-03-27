@@ -169,4 +169,21 @@
   .toast-destructive {
     @apply border-[#dc2626] bg-[#dc2626] text-white;
   }
+
+  /* Ghost border gradient for experience cards */
+  .glass-card-gradient {
+    position: relative;
+  }
+  .glass-card-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 180, 171, 0.2), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
