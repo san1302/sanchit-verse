@@ -17,7 +17,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Sanchit Verse',
-  description: 'Software Engineer | Ex-Amazon | AB InBev — Building scalable platforms and design systems.',
+  description: 'Full-stack engineer — backend-heavy, frontend-polished, production-paranoid.',
   metadataBase: new URL('https://www.sanchit-verse.com'),
   icons: {
     icon: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Sanchit Verse',
-    description: 'Software Engineer | Ex-Amazon | AB InBev — Building scalable platforms and design systems.',
+    description: 'Full-stack engineer — backend-heavy, frontend-polished, production-paranoid.',
     url: 'https://www.sanchit-verse.com',
     siteName: 'Sanchit Verse',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Sanchit Verse',
-    description: 'Software Engineer | Ex-Amazon | AB InBev — Building scalable platforms and design systems.',
+    description: 'Full-stack engineer — backend-heavy, frontend-polished, production-paranoid.',
     images: ['/images/sanchit-portrait.png'],
     creator: '@sanchit_verse',
   },

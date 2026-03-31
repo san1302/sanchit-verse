@@ -1,5 +1,9 @@
 # Portfolio Redesign — Stitch Findings & Issues
 
+## Brand Taglines (Approved Options)
+- **Active:** "Full-stack engineer — backend-heavy, frontend-polished, production-paranoid."
+- **Alternative:** "I build full-stack products. The backend scales, the frontend delights, and the on-call engineer sleeps."
+
 ## Design Direction (Locked In)
 - **Vibe:** Warm, personal, confident, premium — Foliofy energy, NOT cold editorial
 - **Font:** Manrope (bold sans-serif) for headings, Inter for body/labels
