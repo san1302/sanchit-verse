@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     siteName: 'Sanchit Verse',
     images: [
       {
-        url: '/images/sanchit-portrait.png',
-        width: 800,
-        height: 800,
-        alt: 'Sanchit Agarwal — Software Engineer',
+        url: 'https://www.sanchit-verse.com/images/og-image.jpg',
+        width: 630,
+        height: 630,
+        alt: 'Sanchit Agarwal — Full-stack Engineer',
       },
     ],
     locale: 'en_US',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sanchit Verse',
     description: 'Full-stack engineer — backend-heavy, frontend-polished, production-paranoid.',
-    images: ['/images/sanchit-portrait.png'],
+    images: ['https://www.sanchit-verse.com/images/og-image.jpg'],
     creator: '@sanchit_verse',
   },
 };
