@@ -3,28 +3,24 @@
 
 import * as React from 'react';
 import { z } from 'zod';
-import { sendMessage, type SendMessageInput } from '@/actions/send-message'; // Import the server action
-import { Send } from 'lucide-react'; // Import Send icon
+import { sendMessage, type SendMessageInput } from '@/actions/send-message';
 
-// Define the form schema using Zod (still useful for validation)
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'Name must be at least 2 characters.',
-  }),
-  email: z.string().email({
-    message: 'Please enter a valid email address.',
-  }),
-  message: z.string().min(10, {
-    message: 'Message must be at least 10 characters.',
-  }).max(500, {
-    message: 'Message must not exceed 500 characters.',
-  }),
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  email: z.string().email({ message: 'Please enter a valid email address.' }),
+  message: z.string()
+    .min(10, { message: 'Message must be at least 10 characters.' })
+    .max(500, { message: 'Message must not exceed 500 characters.' }),
 });
 
 type FormErrors = Partial<Record<keyof SendMessageInput, string>>;
 
 export default function ContactForm() {
-  const [formData, setFormData] = React.useState<SendMessageInput>({ name: '', email: '', message: '' });
+  const [formData, setFormData] = React.useState<SendMessageInput>({
+    name: '',
+    email: '',
+    message: '',
+  });
   const [errors, setErrors] = React.useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState<'success' | 'error' | null>(null);
@@ -33,9 +29,8 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear the specific error when the user starts typing
     setErrors(prev => ({ ...prev, [name]: undefined }));
-    setSubmitStatus(null); // Reset submit status on change
+    setSubmitStatus(null);
   };
 
   const validateForm = (): FormErrors => {
@@ -61,99 +56,104 @@ export default function ContactForm() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
-      return; // Don't submit if there are errors
+      return;
     }
 
     setIsSubmitting(true);
     try {
-      const result = await sendMessage(formData); // Call the server action
+      const result = await sendMessage(formData);
 
       if (result.success) {
         setSubmitStatus('success');
-        setSubmitMessage("Thanks for reaching out. I'll get back to you soon.");
-        setFormData({ name: '', email: '', message: '' }); // Reset form
+        setSubmitMessage("Thanks for reaching out! I'll get back within a day.");
+        setFormData({ name: '', email: '', message: '' });
       } else {
         setSubmitStatus('error');
-        setSubmitMessage(result.error || 'There was a problem sending your message. Please try again later.');
+        setSubmitMessage(result.error ?? 'Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
-      setSubmitMessage('An unexpected error occurred. Please try again later.');
+      setSubmitMessage('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const inputBase =
+    'w-full bg-[#1F1F24] rounded-[12px] px-6 py-4 text-white placeholder:text-stone-600 border border-[#5c403c26] transition-all outline-none focus:border-[#DC2626] focus:shadow-[0_0_0_4px_rgba(220,38,38,0.1)]';
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col gap-4 max-w-[500px] mx-auto">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">Name</label>
         <input
           type="text"
-          id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Your Name"
+          placeholder="Full Name"
           aria-required="true"
           aria-invalid={!!errors.name}
-          aria-describedby={errors.name ? 'name-error' : undefined}
-          className={`input ${errors.name ? 'border-destructive ring-destructive' : ''}`} // Add error styling
+          className={`${inputBase} ${errors.name ? 'border-[#DC2626]' : ''}`}
         />
-        {errors.name && <p id="name-error" className="mt-1 text-sm text-destructive">{errors.name}</p>}
+        {errors.name && (
+          <p className="mt-1.5 text-xs text-[#DC2626] font-body">{errors.name}</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">Email</label>
         <input
           type="email"
-          id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          placeholder="your.email@example.com"
+          placeholder="Enter your email"
           aria-required="true"
           aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : undefined}
-          className={`input ${errors.email ? 'border-destructive ring-destructive' : ''}`} // Add error styling
+          className={`${inputBase} ${errors.email ? 'border-[#DC2626]' : ''}`}
         />
-        {errors.email && <p id="email-error" className="mt-1 text-sm text-destructive">{errors.email}</p>}
+        {errors.email && (
+          <p className="mt-1.5 text-xs text-[#DC2626] font-body">{errors.email}</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Message</label>
         <textarea
-          id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          placeholder="Type your message here..."
-          rows={4}
+          placeholder="Write a message here..."
+          rows={5}
           aria-required="true"
           aria-invalid={!!errors.message}
-          aria-describedby={errors.message ? 'message-error' : undefined}
-          className={`textarea resize-y min-h-[100px] ${errors.message ? 'border-destructive ring-destructive' : ''}`} // Add error styling and allow vertical resize
+          className={`${inputBase} resize-none ${errors.message ? 'border-[#DC2626]' : ''}`}
         />
-        {errors.message && <p id="message-error" className="mt-1 text-sm text-destructive">{errors.message}</p>}
+        {errors.message && (
+          <p className="mt-1.5 text-xs text-[#DC2626] font-body">{errors.message}</p>
+        )}
       </div>
 
-      {/* Submission Status Messages */}
-       {submitStatus === 'success' && (
-         <div className="p-3 rounded-md bg-primary/10 text-primary border border-primary/30 text-sm">
-           {submitMessage}
-         </div>
-       )}
-       {submitStatus === 'error' && (
-         <div className="p-3 rounded-md bg-destructive/10 text-destructive border border-destructive/30 text-sm">
-           {submitMessage}
-         </div>
-       )}
+      {submitStatus === 'success' && (
+        <div className="p-4 rounded-[12px] bg-green-500/10 text-green-400 border border-green-500/20 text-sm text-center font-body">
+          {submitMessage}
+        </div>
+      )}
+      {submitStatus === 'error' && (
+        <div className="p-4 rounded-[12px] bg-[#DC2626]/10 text-[#DC2626] border border-[#DC2626]/20 text-sm text-center font-body">
+          {submitMessage}
+        </div>
+      )}
 
-
-      <button type="submit" className="btn btn-primary btn-md w-full md:w-auto" disabled={isSubmitting}>
-         {isSubmitting ? 'Sending...' : 'Send Message'}
-         {!isSubmitting && <Send className="ml-2 h-4 w-4" />}
+      <button
+        type="submit"
+        className="w-full bg-white text-black font-bold font-body py-4 rounded-full mt-4 hover:scale-[1.02] active:scale-95 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
       </button>
+
+      <p className="text-center text-[#C6C6C7] text-xs mt-2 opacity-60 font-body">
+        Your info stays private.
+      </p>
     </form>
   );
 }
