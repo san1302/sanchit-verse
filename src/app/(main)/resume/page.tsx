@@ -1,6 +1,5 @@
-import React from "react";
 import { Metadata } from 'next';
-import { Download, Mail, Phone, Linkedin, Github, MapPin, Code, Facebook } from 'lucide-react'; // Added Code icon and Facebook icon
+import { Mail, Linkedin, Github, Facebook } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Resume - Sanchit Agarwal',

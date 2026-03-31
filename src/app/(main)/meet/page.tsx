@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import { Coffee } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: 'Meet - Sanchit Verse',
+  description: 'Schedule a meeting with Sanchit Agarwal.',
+};
 
 export default function MeetPage() {
   return (

@@ -26,8 +26,9 @@ export function getArticleSlugs() {
     return fs.readdirSync(articlesDirectory)
       .filter(file => file.endsWith('.md'))
       .map(file => file.replace(/\.md$/, ''));
-  } catch (error) {
-    console.error("Error reading article directory:", error);
+  } catch {
+    // Intentional: graceful degradation for static site — return empty list
+    // rather than crashing if the articles directory is missing or unreadable
     return [];
   }
 }
@@ -63,8 +64,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       content,
       contentHtml,
     };
-  } catch (error) {
-    console.error(`Error getting article ${slug}:`, error);
+  } catch {
+    // Intentional: graceful degradation — return null so the page can show
+    // a 404 instead of crashing if a single article fails to parse
     return null;
   }
 }
@@ -80,5 +82,5 @@ export async function getAllArticles(): Promise<Article[]> {
   );
   
   // Sort by date, most recent first
-  return articles.sort((a, b) => b.date.getTime() - a.date.getTime());
+  return [...articles].sort((a, b) => b.date.getTime() - a.date.getTime());
 } 

@@ -23,6 +23,8 @@ No test framework is configured yet.
 - `src/components/` — React components. `layout/` has header and footer.
 - `src/lib/markdown.ts` — Markdown processing pipeline (gray-matter frontmatter + remark to HTML).
 - `src/actions/` — Server actions (contact form with Zod validation).
+- `src/ai/` — Deprecated/unused AI utilities (pending cleanup).
+- `src/hooks/` — Custom React hooks (useIsMobile).
 - `content/articles/` — Markdown files that power the blog. Filename = URL slug.
 
 ### Server vs Client components
@@ -32,6 +34,7 @@ Server Components are the default. Only these files use `'use client'`:
 - `contact-form.tsx` (form state/handlers)
 - `theme-toggle.tsx` (theme switching)
 - `theme-provider.tsx` (next-themes wrapper)
+- `nav.tsx` (client-side navigation with active link tracking)
 
 ### Content system
 
@@ -39,7 +42,7 @@ Articles are markdown files in `content/articles/` with YAML frontmatter (`title
 
 ### Styling
 
-Tailwind CSS with class-based dark mode (`next-themes`). Primary color: `#00acb5`. Reusable component classes (`.btn`, `.card`, `.badge`) defined in `globals.css` `@layer components`. Typography plugin used for article prose styling. Theme colors use CSS variables in HSL format.
+Tailwind CSS with class-based dark mode (`next-themes`). Primary color: `#dc2626` (red). Reusable component classes (`.btn`, `.card`, `.badge`) defined in `globals.css` `@layer components`. Typography plugin used for article prose styling. Theme colors use CSS variables in HEX format.
 
 ### Path alias
 
@@ -48,6 +51,9 @@ Tailwind CSS with class-based dark mode (`next-themes`). Primary color: `#00acb5
 ## Backlog
 
 - [x] ~~**OG image: resize to 1200×630**~~ — Done. Split layout: favicon character left, name + tagline code block right. Dark theme with red (#dc2626) accents.
+- [ ] Add HTML sanitization for markdown content (dangerouslySetInnerHTML)
+- [ ] Add security headers to next.config.ts (CSP, X-Frame-Options, etc.)
+- [ ] Remove ignoreBuildErrors from next.config.ts and fix all type/lint errors
 
 ## Build config notes
 

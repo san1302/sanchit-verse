@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Minimalist Muse',
+  title: 'Portfolio - Sanchit Verse',
   description: 'A showcase of selected software development projects.',
 };
 

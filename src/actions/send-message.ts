@@ -41,8 +41,6 @@ export async function sendMessage(input: SendMessageInput): Promise<SendMessageO
     // Validate input using Zod schema (react-hook-form already does this, but good practice for server actions)
     const validatedInput = SendMessageInputSchema.parse(input);
 
-    console.log('Received message:', validatedInput);
-
     // ** Placeholder Logic **
     // In a real application, you would:
     // 1. Use an email service (like Resend, SendGrid, etc.) to send an email notification.
@@ -56,8 +54,6 @@ export async function sendMessage(input: SendMessageInput): Promise<SendMessageO
     return { success: true };
 
   } catch (error) {
-    console.error('Error processing message:', error);
-
     // Handle potential Zod validation errors or other exceptions
     if (error instanceof z.ZodError) {
       // Combine multiple validation errors into a single message if needed

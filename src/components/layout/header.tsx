@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, CodeXml, X } from 'lucide-react'; // Changed Feather to CodeXml, Added X
+import { Menu, X } from 'lucide-react';
 import * as React from 'react';
 import { ThemeToggle } from '@/components/theme-toggle'; // Import ThemeToggle
 import Image from "next/image";
