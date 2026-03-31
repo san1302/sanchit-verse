@@ -45,6 +45,10 @@ Tailwind CSS with class-based dark mode (`next-themes`). Primary color: `#00acb5
 
 `@/*` maps to `./src/*` (configured in tsconfig.json).
 
+## Backlog
+
+- [x] ~~**OG image: resize to 1200×630**~~ — Done. Split layout: favicon character left, name + tagline code block right. Dark theme with red (#dc2626) accents.
+
 ## Build config notes
 
 - `next.config.ts` has `ignoreBuildErrors: true` for both TypeScript and ESLint — errors won't fail the build but should still be fixed.
