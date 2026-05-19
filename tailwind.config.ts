@@ -50,6 +50,8 @@ const config: Config = {
         headline: ["var(--font-headline)", "Manrope", "sans-serif"],
         body: ["var(--font-body)", "Inter", "sans-serif"],
         label: ["var(--font-body)", "Inter", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        serif: ["var(--font-serif)", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
       },
       borderRadius: {
         DEFAULT: "1rem",

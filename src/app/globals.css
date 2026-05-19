@@ -187,3 +187,7 @@
     pointer-events: none;
   }
 }
+
+@keyframes caretBlink {
+  50% { opacity: 0; }
+}

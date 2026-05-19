@@ -66,6 +66,7 @@ export function Nav() {
             alt="SA"
             width={36}
             height={36}
+            priority
             className=""
           />
 

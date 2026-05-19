@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { Reveal } from "@/components/ui/reveal";
 
 const EXPERIENCES = [
   {
@@ -27,55 +29,65 @@ export default function Experience() {
       {/* Background glow */}
       <div className="crimson-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] pointer-events-none" />
 
-      {/* Heading */}
-      <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-4 text-center">
-        My Experience
-      </h2>
+      {/* Eyebrow */}
+      <div className="flex justify-center mb-4">
+        <Eyebrow num="02" label="experience" />
+      </div>
 
-      {/* Subtitle */}
-      <p className="text-[#c6c6c7] font-body max-w-lg mx-auto leading-relaxed mb-10 md:mb-16 text-center">
-        A journey through building scalable systems at global organizations.
-      </p>
+      {/* Heading + subtitle */}
+      <Reveal>
+        <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tighter mb-4 text-center">
+          My Experience
+        </h2>
+
+        <p className="text-[#c6c6c7] font-body max-w-lg mx-auto leading-relaxed mb-10 md:mb-16 text-center">
+          A journey through building scalable systems at global organizations.
+        </p>
+      </Reveal>
 
       {/* Experience cards */}
       <div className="flex flex-col gap-8 max-w-4xl mx-auto relative z-10">
-        {EXPERIENCES.map((exp) => (
-          <div
+        {EXPERIENCES.map((exp, i) => (
+          <Reveal
             key={`${exp.company}-${exp.dates}`}
-            className="glass-card glass-card-gradient w-full rounded-xl p-6 sm:p-8 md:p-12 transition-all hover:bg-white/[0.02]"
+            delay={120 + i * 100}
           >
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-              {/* Left: role + company */}
-              <div>
-                <p className="text-lg sm:text-xl md:text-2xl font-bold font-headline text-white">
-                  {exp.isCurrent && (
-                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#DC2626] shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-3" />
-                  )}
-                  {exp.title}
-                </p>
-                <p className="text-[#c6c6c7] font-body mt-1 text-sm">
-                  {exp.company}
+            <div className="glass-card glass-card-gradient w-full rounded-[12px] p-6 sm:p-8 md:p-12 transition-all hover:bg-white/[0.02]">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                {/* Left: role + company */}
+                <div>
+                  <p className="text-lg sm:text-xl md:text-2xl font-bold font-headline text-white">
+                    {exp.isCurrent && (
+                      <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#DC2626] shadow-[0_0_10px_rgba(220,38,38,0.8)] mr-3" />
+                    )}
+                    {exp.title}
+                  </p>
+                  <p className="text-[#c6c6c7] font-body mt-1 text-sm">
+                    {exp.company}
+                  </p>
+                </div>
+
+                {/* Right: dates */}
+                <p className="text-[#c6c6c7] font-body text-sm mt-2 md:mt-0 opacity-70">
+                  {exp.dates}
                 </p>
               </div>
-
-              {/* Right: dates */}
-              <p className="text-[#c6c6c7] font-body text-sm mt-2 md:mt-0 opacity-70">
-                {exp.dates}
-              </p>
             </div>
-          </div>
+          </Reveal>
         ))}
       </div>
 
       {/* View full resume link */}
-      <div className="text-center mt-12">
-        <Link
-          href="/resume"
-          className="text-[#c6c6c7] text-sm font-body hover:text-white transition-colors"
-        >
-          View full resume &rarr;
-        </Link>
-      </div>
+      <Reveal delay={500}>
+        <div className="text-center mt-12">
+          <Link
+            href="/resume"
+            className="text-[#c6c6c7] text-sm font-body hover:text-white transition-colors"
+          >
+            View full resume &rarr;
+          </Link>
+        </div>
+      </Reveal>
     </section>
   );
 }
