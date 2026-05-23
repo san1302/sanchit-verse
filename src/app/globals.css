@@ -39,8 +39,14 @@
   h3 { @apply text-2xl; }
   h4 { @apply text-xl; }
   p { @apply leading-7; }
-  a {
-    @apply text-[#dc2626] hover:text-[#dc2626]/80 underline-offset-4;
+  /* :where() drops specificity to 0 so any component class overrides this.
+     Without it, `a:hover { color: red }` beats `.text-white` (specificity
+     0,1,1 vs 0,1,0) and button text becomes red-on-red on hover. */
+  :where(a) {
+    @apply text-[#dc2626] underline-offset-4;
+  }
+  :where(a):hover {
+    @apply text-[#dc2626]/80;
   }
   .prose a {
     @apply text-[#dc2626] hover:text-[#dc2626]/80;
