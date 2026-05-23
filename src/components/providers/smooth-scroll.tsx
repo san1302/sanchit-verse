@@ -4,10 +4,12 @@ import { ReactLenis, type LenisRef } from 'lenis/react'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
 
 // Register GSAP plugins once at module scope. Safe — registerPlugin is
 // idempotent and runs on the client only because this file is 'use client'.
-gsap.registerPlugin(ScrollTrigger)
+// SplitText became free in 2024 (Webflow acquired GSAP); ships with gsap@3.13+.
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 interface SmoothScrollProps {
   readonly children: ReactNode
