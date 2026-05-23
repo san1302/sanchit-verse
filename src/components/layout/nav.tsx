@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
+import { useLenis } from 'lenis/react'
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -14,6 +15,7 @@ const NAV_ITEMS = [
 export function Nav() {
   const [activeSection, setActiveSection] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const lenis = useLenis()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,7 +55,14 @@ export function Nav() {
   ) => {
     e.preventDefault()
     setMobileMenuOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    // Route through Lenis when available (smooth scroll respects easing).
+    // Fall back to native scrollIntoView for reduced-motion users (where
+    // SmoothScroll provider opts out of Lenis entirely).
+    if (lenis) {
+      lenis.scrollTo(href)
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (

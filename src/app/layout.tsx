@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Manrope, Inter, JetBrains_Mono, Fraunces } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { SmoothScroll } from '@/components/providers/smooth-scroll';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -80,7 +81,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

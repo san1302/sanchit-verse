@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 import { Reveal } from '@/components/ui/reveal';
 import { CursorSpotlight } from '@/components/hero/cursor-spotlight';
@@ -24,8 +26,41 @@ type MousePos = { x: number; y: number };
  */
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const headlineRef = useRef<HTMLHeadingElement | null>(null);
   const [mouse, setMouse] = useState<MousePos>({ x: 0.5, y: 0.5 });
   const [parallaxEnabled, setParallaxEnabled] = useState(false);
+
+  // Word-by-word entrance for the headline. The `[data-word]` spans inside
+  // the <h1> animate up + fade in with a stagger.
+  //
+  // Uses fromTo (not from) — explicit FROM and TO states. With from(),
+  // React 18 StrictMode can interrupt mid-animation, the cleanup snaps
+  // elements back to the FROM state, then the second mount's from() reads
+  // that current invisible state as its "natural" target and animates
+  // opacity:0→opacity:0 (stays invisible). fromTo is immune because both
+  // states are hardcoded.
+  //
+  // useGSAP handles its own context cleanup; we just bail out for
+  // prefers-reduced-motion users so the animation never runs.
+  useGSAP(
+    () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      gsap.fromTo(
+        '[data-word]',
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.06,
+          delay: 0.15,
+          ease: 'power3.out',
+        },
+      );
+    },
+    { scope: headlineRef },
+  );
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -90,22 +125,31 @@ export default function Hero() {
               </div>
             </Reveal>
 
-            <Reveal delay={120}>
-              <h1 className="font-headline font-extrabold tracking-tight leading-[0.95] text-white text-balance text-[40px] sm:text-[52px] md:text-[72px] lg:text-[72px]">
-                I build platforms
-                <br />
-                that don&apos;t page&nbsp;you
-                <br />
-                <span className="relative inline-block">
-                  at <span className="text-[#DC2626]">3am</span>
-                  <span
-                    aria-hidden
-                    className="absolute inset-x-0 bottom-[8%] h-3.5 bg-[#DC2626]/30 -z-10 rounded"
-                  />
+            <h1
+              ref={headlineRef}
+              className="font-headline font-extrabold tracking-tight leading-[0.95] text-white text-balance text-[40px] sm:text-[52px] md:text-[72px] lg:text-[72px]"
+            >
+              <span data-word className="inline-block">I</span>{' '}
+              <span data-word className="inline-block">build</span>{' '}
+              <span data-word className="inline-block">platforms</span>
+              <br />
+              <span data-word className="inline-block">that</span>{' '}
+              <span data-word className="inline-block">don&apos;t</span>{' '}
+              <span data-word className="inline-block">page</span>{' '}
+              <span data-word className="inline-block">you</span>
+              <br />
+              <span className="relative inline-block">
+                <span data-word className="inline-block">at</span>{' '}
+                <span data-word className="inline-block text-[#DC2626]">
+                  3am
                 </span>
-                <span className="text-white/40">.</span>
-              </h1>
-            </Reveal>
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-[8%] h-3.5 bg-[#DC2626]/30 -z-10 rounded"
+                />
+              </span>
+              <span className="text-white/40">.</span>
+            </h1>
 
             <Reveal delay={240}>
               <p className="max-w-md text-zinc-400 text-base leading-relaxed mt-6">
