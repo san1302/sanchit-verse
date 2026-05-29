@@ -140,7 +140,7 @@ export default function About() {
               {/* Portrait */}
               <div className="w-full h-full rounded-[2.5rem] bg-black overflow-hidden relative">
                 <Image
-                  src="/images/sanchit-portrait.png"
+                  src="/images/sanchit-portrait-2.png"
                   alt="Sanchit Agarwal"
                   fill
                   className="object-cover object-top"

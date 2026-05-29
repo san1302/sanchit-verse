@@ -192,7 +192,7 @@ export default function Hero() {
           <Reveal delay={300} className="relative min-h-[480px]">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.2fr] gap-4 items-stretch">
               <PhotoCard
-                photoSrc="/images/sanchit-portrait.png"
+                photoSrc="/images/sanchit-portrait-2.png"
                 alt="Sanchit Agarwal"
                 style={photoStyle}
               />
