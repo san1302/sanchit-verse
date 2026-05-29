@@ -5,6 +5,12 @@ import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from
 type TerminalProps = {
   className?: string;
   style?: CSSProperties;
+  /**
+   * When true, renders a tighter terminal suitable for narrow viewports:
+   * shorter script (3 commands instead of 5), simpler JSON (5 keys instead
+   * of 7), shorter header label, and smaller font.
+   */
+  compact?: boolean;
 };
 
 type Line =
@@ -19,7 +25,7 @@ const POST_CMD_PAUSE_MS = 280;
 const POST_JSON_PAUSE_MS = 600;
 const POST_OUT_PAUSE_MS = 350;
 
-const SCRIPT: ReadonlyArray<Line> = [
+const SCRIPT_FULL: ReadonlyArray<Line> = [
   { kind: 'cmd', text: 'cat identity.json' },
   { kind: 'json' },
   { kind: 'cmd', text: 'uptime' },
@@ -27,12 +33,18 @@ const SCRIPT: ReadonlyArray<Line> = [
   { kind: 'cmd', text: './hire-me' },
 ];
 
+const SCRIPT_COMPACT: ReadonlyArray<Line> = [
+  { kind: 'cmd', text: 'cat identity.json' },
+  { kind: 'json' },
+  { kind: 'cmd', text: './hire-me' },
+];
+
 /**
  * Terminal-style panel that auto-types a small shell session. The full final
  * state is rendered immediately when the user prefers reduced motion.
  */
-export function Terminal({ className, style }: TerminalProps) {
-  const script = useMemo(() => SCRIPT, []);
+export function Terminal({ className, style, compact = false }: TerminalProps) {
+  const script = useMemo(() => (compact ? SCRIPT_COMPACT : SCRIPT_FULL), [compact]);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [step, setStep] = useState(0);
   const [typed, setTyped] = useState('');
@@ -100,13 +112,16 @@ export function Terminal({ className, style }: TerminalProps) {
     'bg-[#0f0f12]/85',
     'backdrop-blur-xl',
     'font-mono',
-    'text-[13px]',
+    compact ? 'text-[12px]' : 'text-[13px]',
     'leading-[1.7]',
     'shadow-[0_40px_80px_rgba(0,0,0,0.5)]',
     className,
   ]
     .filter(Boolean)
     .join(' ');
+
+  const headerText = compact ? 'about.sh' : '~/sanchit/about.sh';
+  const bodyMinHeight = compact ? 'min-h-[260px]' : 'min-h-[360px]';
 
   return (
     <div className={containerClasses} style={style}>
@@ -121,13 +136,13 @@ export function Terminal({ className, style }: TerminalProps) {
         <span className="block h-3 w-3 rounded-full bg-zinc-800" />
         <span className="block h-3 w-3 rounded-full bg-zinc-800" />
         <div className="flex-1" />
-        <span className="text-[11px] text-zinc-600">~/sanchit/about.sh</span>
+        <span className="text-[11px] text-zinc-600">{headerText}</span>
       </div>
 
       {/* Body */}
-      <div className="min-h-[360px] p-5">
+      <div className={`${bodyMinHeight} p-5`}>
         {script.slice(0, step).map((line, i) => (
-          <RenderedLine key={i} line={line} />
+          <RenderedLine key={i} line={line} compact={compact} />
         ))}
 
         {/* In-flight typing line */}
@@ -151,7 +166,7 @@ export function Terminal({ className, style }: TerminalProps) {
   );
 }
 
-function RenderedLine({ line }: { line: Line }) {
+function RenderedLine({ line, compact }: { line: Line; compact: boolean }) {
   if (line.kind === 'cmd') {
     return (
       <div className="text-[#e2e2e2]">
@@ -165,10 +180,30 @@ function RenderedLine({ line }: { line: Line }) {
       <div className="mb-2 mt-0.5 pl-4 text-zinc-400">{line.text}</div>
     );
   }
-  return <JsonBlock />;
+  return <JsonBlock compact={compact} />;
 }
 
-function JsonBlock() {
+function JsonBlock({ compact }: { compact: boolean }) {
+  if (compact) {
+    return (
+      <div className="mb-2 mt-0.5 whitespace-pre pl-4 text-zinc-400">
+        {'{'}
+        {'\n'}
+        {'  '}
+        <JKey>name</JKey>: <JStr>&quot;Sanchit Agarwal&quot;</JStr>,{'\n'}
+        {'  '}
+        <JKey>role</JKey>: <JStr>&quot;Sr. SWE&quot;</JStr>,{'\n'}
+        {'  '}
+        <JKey>at</JKey>: <JStr>&quot;AB InBev&quot;</JStr>,{'\n'}
+        {'  '}
+        <JKey>loc</JKey>: <JStr>&quot;Bengaluru&quot;</JStr>,{'\n'}
+        {'  '}
+        <JKey>available</JKey>: <JArr>true</JArr>
+        {'\n'}
+        {'}'}
+      </div>
+    );
+  }
   return (
     <div className="mb-2 mt-0.5 whitespace-pre pl-4 text-zinc-400">
       {'{'}

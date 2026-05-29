@@ -41,11 +41,11 @@ export function CountStat({ n, suffix = '', decimals = 0, label }: CountStatProp
 
   return (
     <div>
-      <div className="font-headline text-[32px] font-extrabold leading-none tracking-tight text-white tabular-nums">
+      <div className="font-headline text-[26px] sm:text-[32px] font-extrabold leading-none tracking-tight text-white tabular-nums">
         {value.toFixed(decimals)}
         {suffix}
       </div>
-      <div className="mt-1.5 text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+      <div className="mt-1.5 text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] text-zinc-500">
         {label}
       </div>
     </div>

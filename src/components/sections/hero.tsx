@@ -112,32 +112,52 @@ export default function Hero() {
       <div className="relative flex-1">
         <CursorSpotlight size={700} intensity={0.18} accent="#DC2626" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 px-6 md:px-12 pt-28 pb-12 max-w-[1440px] mx-auto items-center">
+        {/* Mobile-only terminal status strip — sets the developer-shell tone
+            before the eyebrow + headline land. Clears the floating nav with
+            top spacing, then sits as a thin border-bottom row. */}
+        <div className="sm:hidden relative z-10 flex items-center justify-between px-5 pt-20 pb-3.5 font-mono text-[10px] text-zinc-500 border-b border-white/[0.06]">
+          <span>
+            <span className="text-[#DC2626]">~/portfolio</span>{' '}
+            <span className="text-zinc-500">main</span>
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <span
+              aria-hidden
+              className="inline-block h-[5px] w-[5px] rounded-full bg-green-500 shadow-[0_0_6px_#22c55e]"
+            />
+            online
+          </span>
+        </div>
+
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 px-5 sm:px-6 md:px-12 pt-7 sm:pt-28 pb-9 sm:pb-12 max-w-[1440px] mx-auto items-center">
           {/* Left column — headline + paragraph + CTAs + stats */}
           <div className="relative">
             <Reveal>
-              <div className="flex items-center gap-3 font-mono text-[11px] text-zinc-500 mb-6">
-                <span className="rounded-[4px] border border-[#DC2626]/30 bg-[#DC2626]/15 px-2 py-[3px] font-semibold uppercase tracking-[0.1em] text-[#DC2626]">
+              <div className="flex items-center gap-2 sm:gap-3 font-mono text-[10px] sm:text-[11px] text-zinc-500 mb-4 sm:mb-6">
+                <span className="rounded-[4px] border border-[#DC2626]/30 bg-[#DC2626]/15 px-2 py-[3px] font-semibold uppercase tracking-[0.08em] sm:tracking-[0.1em] text-[#DC2626]">
                   v5.2
                 </span>
-                <span className="text-zinc-700">—</span>
-                <span>Senior Software Engineer · 2021→now</span>
+                <span className="hidden sm:inline text-zinc-700">—</span>
+                <span>
+                  Senior Software Engineer
+                  <span className="hidden sm:inline"> · 2021→now</span>
+                </span>
               </div>
             </Reveal>
 
             <h1
               ref={headlineRef}
-              className="font-headline font-extrabold tracking-tight leading-[0.95] text-white text-balance text-[40px] sm:text-[52px] md:text-[72px] lg:text-[72px]"
+              className="font-headline font-extrabold tracking-tight leading-[0.98] sm:leading-[0.95] text-white text-balance text-[38px] sm:text-[52px] md:text-[72px] lg:text-[72px]"
             >
               <span data-word className="inline-block">I</span>{' '}
               <span data-word className="inline-block">build</span>{' '}
-              <span data-word className="inline-block">platforms</span>
-              <br />
+              <span data-word className="inline-block">platforms</span>{' '}
+              <br className="hidden sm:block" />
               <span data-word className="inline-block">that</span>{' '}
               <span data-word className="inline-block">don&apos;t</span>{' '}
               <span data-word className="inline-block">page</span>{' '}
-              <span data-word className="inline-block">you</span>
-              <br />
+              <span data-word className="inline-block">you</span>{' '}
+              <br className="hidden sm:block" />
               <span className="relative inline-block">
                 <span data-word className="inline-block">at</span>{' '}
                 <span data-word className="inline-block text-[#DC2626]">
@@ -148,31 +168,44 @@ export default function Hero() {
                   className="absolute inset-x-0 bottom-[8%] h-3.5 bg-[#DC2626]/30 -z-10 rounded"
                 />
               </span>
-              <span className="text-white/40">.</span>
+              <span className="text-white sm:text-white/40">.</span>
             </h1>
 
             <Reveal delay={240}>
-              <p className="max-w-md text-zinc-400 text-base leading-relaxed mt-6">
-                Backend-heavy, frontend-polished, production-paranoid. Five
-                years shipping at{' '}
-                <span className="text-white font-medium">Amazon</span> and{' '}
-                <span className="text-white font-medium">AB&nbsp;InBev</span>{' '}
-                — design systems, cloud platforms, the boring infrastructure
-                that lets product teams move fast.
+              <p className="max-w-md text-zinc-400 text-[15px] sm:text-base leading-relaxed mt-[18px] sm:mt-6">
+                Backend-heavy, frontend-polished, production-paranoid.{' '}
+                <span className="sm:hidden">5</span>
+                <span className="hidden sm:inline">Five</span> years shipping
+                at <span className="text-white font-medium">Amazon</span> and{' '}
+                <span className="text-white font-medium">AB&nbsp;InBev</span>
+                <span className="sm:hidden">.</span>
+                <span className="hidden sm:inline">
+                  {' '}— design systems, cloud platforms, the boring
+                  infrastructure that lets product teams move fast.
+                </span>
               </p>
             </Reveal>
 
+            {/* Mobile-only terminal — sits between paragraph and CTAs so the
+                terminal moment leads the page on phones, rather than orphaning
+                below the stats. Uses the compact prop (3 commands, 5-key JSON,
+                shorter header) sized for narrow viewports. Desktop split layout
+                (below) renders the full terminal in its right column instead. */}
+            <Reveal delay={300} className="sm:hidden mt-6">
+              <Terminal compact />
+            </Reveal>
+
             <Reveal delay={360}>
-              <div className="flex gap-3 mt-8 flex-wrap">
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 mt-[22px] sm:mt-8 sm:flex-wrap">
                 <a
                   href="#contact"
-                  className="bg-[#DC2626] hover:bg-[#DC2626]/90 text-white px-6 py-3.5 rounded-[10px] text-sm font-semibold shadow-[0_8px_24px_rgba(220,38,38,0.3)] inline-flex items-center gap-2 transition"
+                  className="w-full sm:w-auto justify-center bg-[#DC2626] hover:bg-[#DC2626]/90 text-white px-6 py-3.5 rounded-[10px] text-sm font-semibold shadow-[0_8px_24px_rgba(220,38,38,0.3)] inline-flex items-center gap-2 transition"
                 >
                   Get in touch <span className="opacity-60">→</span>
                 </a>
                 <a
                   href="/resume"
-                  className="border border-white/15 hover:border-white/30 text-white px-6 py-3.5 rounded-[10px] text-sm font-medium inline-flex items-center gap-2 transition"
+                  className="w-full sm:w-auto justify-center border border-white/15 hover:border-white/30 text-white px-6 py-3.5 rounded-[10px] text-sm font-medium inline-flex items-center gap-2 transition"
                 >
                   View resume <span className="opacity-60">→</span>
                 </a>
@@ -180,7 +213,7 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={480}>
-              <div className="flex gap-6 sm:gap-10 mt-12 pt-6 border-t border-white/[0.08]">
+              <div className="flex gap-[22px] sm:gap-10 mt-[30px] sm:mt-12 pt-[22px] sm:pt-6 border-t border-white/[0.08]">
                 <CountStat n={5} suffix="+" label="years" />
                 <CountStat n={3} suffix="" label="roles" />
                 <CountStat n={2} suffix="" label="companies" />
@@ -188,14 +221,19 @@ export default function Hero() {
             </Reveal>
           </div>
 
-          {/* Right column — layered photo + terminal with parallax */}
-          <Reveal delay={300} className="relative min-h-[480px]">
+          {/* Right column — layered photo + terminal with parallax.
+              Hidden on mobile; mobile gets the embedded Terminal above. */}
+          <Reveal delay={300} className="hidden sm:block relative min-h-[480px]">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.2fr] gap-4 items-stretch">
-              <PhotoCard
-                photoSrc="/images/sanchit-portrait-2.png"
-                alt="Sanchit Agarwal"
-                style={photoStyle}
-              />
+              {/* PhotoCard hidden on mobile to avoid two competing big cards
+                  stacked vertically. Photo lives full-size in About section. */}
+              <div className="hidden sm:block">
+                <PhotoCard
+                  photoSrc="/images/sanchit-portrait-2.png"
+                  alt="Sanchit Agarwal"
+                  style={photoStyle}
+                />
+              </div>
               <Terminal style={terminalStyle} />
             </div>
           </Reveal>
