@@ -61,20 +61,22 @@ export function PhotoCard({ photoSrc, alt, className, style }: PhotoCardProps) {
         ID · 0001
       </div>
 
-      {/* Bottom caption strip — left: name + year stamp, right: green pulse
-          dot (online echo). Year stamp reads like photo metadata, matching
-          the contact-sheet feel of the ID·0001 label up top. */}
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between px-3.5 pb-3 pt-3 font-mono text-[10px] tracking-[0.05em] text-zinc-400">
+      {/* Bottom caption strip — green pulse dot (online echo) sits to
+          the LEFT of the name/year text block, reading as a status
+          indicator paired with the identity rather than a far-corner
+          accent. Year stamp matches the contact-sheet feel of the
+          ID·0001 label up top. */}
+      <div className="absolute inset-x-0 bottom-0 flex items-end gap-2 px-3.5 pb-3 pt-3 font-mono text-[10px] tracking-[0.05em] text-zinc-400">
+        <span
+          aria-hidden
+          className="mb-[3px] inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-green-500 shadow-[0_0_6px_#22c55e]"
+        />
         <div className="leading-tight">
           <div className="text-[11px] font-semibold text-white">
             Sanchit Agarwal
           </div>
           <div>Bengaluru, IN · 2026</div>
         </div>
-        <span
-          aria-hidden
-          className="inline-block h-1.5 w-1.5 rounded-full bg-green-500 shadow-[0_0_6px_#22c55e]"
-        />
       </div>
     </div>
   );
