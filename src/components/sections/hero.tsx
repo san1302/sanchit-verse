@@ -222,19 +222,29 @@ export default function Hero() {
           </div>
 
           {/* Right column — layered photo + terminal with parallax.
-              Hidden on mobile; mobile gets the embedded Terminal above. */}
+              Hidden on mobile; mobile gets the embedded Terminal above.
+
+              Composition: photo as the base layer (z-0), terminal floating
+              on top (z-10) and pulled left with a negative margin so its
+              left edge crosses ~64px into the photo's right side. Both
+              still participate in the same grid so widths stay proportional
+              and the row stretches them to equal height. Terminal's drop
+              shadow (40/80 rgba(0,0,0,0.5)) lands on the photo behind it,
+              which sells the depth. PhotoCard is the direct grid item
+              (no wrapper div) so align-items:stretch matches its height
+              to the terminal. */}
           <Reveal delay={300} className="hidden sm:block relative min-h-[480px]">
             <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.2fr] gap-4 items-stretch">
-              {/* PhotoCard hidden on mobile to avoid two competing big cards
-                  stacked vertically. Photo lives full-size in About section. */}
-              <div className="hidden sm:block">
-                <PhotoCard
-                  photoSrc="/images/sanchit-portrait-2.png"
-                  alt="Sanchit Agarwal"
-                  style={photoStyle}
-                />
-              </div>
-              <Terminal style={terminalStyle} />
+              <PhotoCard
+                photoSrc="/images/sanchit-portrait-2.png"
+                alt="Sanchit Agarwal"
+                className="hidden sm:block sm:relative sm:z-0"
+                style={photoStyle}
+              />
+              <Terminal
+                className="sm:relative sm:z-10 sm:-ml-16"
+                style={terminalStyle}
+              />
             </div>
           </Reveal>
         </div>
